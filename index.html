@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<button id="dark-mode-toggle">Toggle Dark Mode</button>
+<div id="dark-mode-toggle">
+    <input type="checkbox" class="toggle" id="toggle-dark-mode">
+    <label class="toggle-label" for="toggle-dark-mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </label>
+</div>
 
 <div id="passport-form">
     <h1>Create Manila Passport</h1>
@@ -52,10 +58,10 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeToggle = document.getElementById('toggle-dark-mode');
         const body = document.body;
 
-        darkModeToggle.addEventListener('click', function() {
+        darkModeToggle.addEventListener('change', function() {
             body.classList.toggle('dark-mode');
         });
     });
