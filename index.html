@@ -144,24 +144,29 @@
                     <div class="info">
                         <p>No records available</p>
                     </div>
-                    <a id="downloadButton" href="#" download="passport.html">Download Passport</a>
                 </div>
             </body>
             </html>
         `;
 
+        // Remove the download button from the dynamically generated passport HTML
+        passportHTML = passportHTML.replace('<a id="downloadButton" href="#" download="passport.html">Download Passport</a>', '');
+
         // Open a new window/tab with the dynamically created passport HTML
         var passportWindow = window.open();
         passportWindow.document.write(passportHTML);
 
-        // Get the reference to the download button
-        var downloadButton = passportWindow.document.getElementById('downloadButton');
-        
         // Create a Blob from the HTML content
         var blob = new Blob([passportHTML], { type: 'text/html' });
         
         // Set the href of the download button to the Blob URL
-        downloadButton.href = URL.createObjectURL(blob);
+        var downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = 'passport.html';
+        passportWindow.document.body.appendChild(downloadLink);
+        
+        // Trigger the click event of the download link
+        downloadLink.click();
     });
 </script>
 
