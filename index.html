@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Manila Passport</title>
+    <title>Manila Passport</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
 <div id="dark-mode-toggle">
     <input type="checkbox" class="toggle" id="toggle-dark-mode">
     <label class="toggle-label" for="toggle-dark-mode">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span>
+        <span class="sun-icon">  🌙</span>
+        <span class="moon-icon">☀️  </span>
     </label>
 </div>
 
@@ -85,8 +85,8 @@
         var expirationDay = currentDate.getDate();
         var expirationDate = expirationYear + '-' + (expirationMonth < 10 ? '0' : '') + expirationMonth + '-' + (expirationDay < 10 ? '0' : '') + expirationDay;
         
-        // Generate random use value between 1 and 15
-        var use = Math.floor(Math.random() * 15) + 1;
+        // Generate random use value between 3 and 15
+        var use = Math.floor(Math.random() * 15) + 3;
 
         // Dynamically create passport HTML with inputted values
         var passportHTML = `
@@ -138,7 +138,7 @@
                         <p>${use}</p>
                     </div>
                     <div class="photo">
-                        <img src="https://via.placeholder.com/150" alt="Passport Photo">
+                        <img src="https://github.com/ManilaPass/ManilaHub/blob/main/Media/Change%20this%20.png" alt="Passport Photo">
                     </div>
                     <h2>Travel History</h2>
                     <div class="info">
