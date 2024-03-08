@@ -160,18 +160,34 @@ body.dark-mode {
     color: #fff;
 }
 
-.dark-mode .toggle-label {
-    background-color: #666;
+.dark-mode #passport-form {
+    background-color: #444;
 }
 
-.dark-mode .toggle-label::before {
-    background-color: #333;
+.dark-mode label {
+    color: #fff;
 }
 
-.dark-mode .sun-icon {
-    color: #ffdb75;
+.dark-mode input[type="text"],
+.dark-mode input[type="date"],
+.dark-mode input[type="email"],
+.dark-mode input[type="tel"],
+.dark-mode select {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #666;
 }
 
-.dark-mode .moon-icon {
-    color: #b3b3cc;
+.dark-mode button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode button:hover {
+    background-color: #777;
+}
+
+.dark-mode .photo img {
+    border-color: #000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
