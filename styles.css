@@ -4,6 +4,12 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition for smooth mode change */
+}
+
+.dark-mode {
+    background-color: #333; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
 }
 
 #passport-form {
@@ -40,6 +46,8 @@ select {
     border-radius: 5px;
     box-sizing: border-box;
     margin-top: 5px;
+    background-color: #fff; /* Light mode input background color */
+    color: #333; /* Light mode input text color */
 }
 
 button {
