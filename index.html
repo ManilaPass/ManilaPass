@@ -149,24 +149,6 @@ var passportHTML = `
     </html>
 `;
 
-// Create a button element
-var downloadButton = document.createElement('button');
-downloadButton.textContent = 'Download Passport';
-downloadButton.addEventListener('click', function() {
-    // Create a Blob containing the HTML content
-    var blob = new Blob([passportHTML], { type: 'text/html' });
-    
-    // Create a link element
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'ManilaPassport.html'; // Filename
-    link.click();
-});
-
-// Append the button to the document body
-document.body.appendChild(downloadButton);
-
-
         // Open a new window/tab with the dynamically created passport HTML
         var passportWindow = window.open();
         passportWindow.document.write(passportHTML);
