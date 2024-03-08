@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Manila Passport</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="passport-form">
+    <h1>Create Manila Passport</h1>
+    <form id="passportForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Job">Job:</label>
+            <input type="text" id="Job" name="Job" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <button type="submit">Create Passport</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('passportForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Retrieve form values
+        var name = document.getElementById('name').value;
+        var nationality = document.getElementById('nationality').value;
+        var dob = document.getElementById('dob').value;
+        var gender = document.getElementById('gender').value;
+        var Job = document.getElementById('Job').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        
+        // Generate expiration date 5 years from the current date
+        var currentDate = new Date();
+        var expirationYear = currentDate.getFullYear() + 5;
+        var expirationMonth = currentDate.getMonth() + 1; // Month is zero-based
+        var expirationDay = currentDate.getDate();
+        var expirationDate = expirationYear + '-' + (expirationMonth < 10 ? '0' : '') + expirationMonth + '-' + (expirationDay < 10 ? '0' : '') + expirationDay;
+        
+        // Generate random use value between 1 and 15
+        var use = Math.floor(Math.random() * 15) + 1;
+
+        // Dynamically create passport HTML with inputted values
+        var passportHTML = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Manila Passport</title>
+                <link rel="stylesheet" href="styles.css">
+            </head>
+            <body>
+                <div id="passport">
+                    <h1>Manila Passport</h1>
+                    <div class="info">
+                        <label>Name:</label>
+                        <p>${name}</p>
+                    </div>
+                    <div class="info">
+                        <label>Nationality:</label>
+                        <p>${nationality}</p>
+                    </div>
+                    <div class="info">
+                        <label>Date of Birth:</label>
+                        <p>${dob}</p>
+                    </div>
+                    <div class="info">
+                        <label>Gender:</label>
+                        <p>${gender}</p>
+                    </div>
+                    <div class="info">
+                        <label>Email:</label>
+                        <p>${email}</p>
+                    </div>
+                    <div class="info">
+                        <label>Phone Number:</label>
+                        <p>${phone}</p>
+                    </div>
+                    <div class="info">
+                        <label>Expiration Date:</label>
+                        <p>${expirationDate}</p>
+                    </div>
+                    <div class="info">
+                        <label>Job:</label>
+                        <p>${Job}</p>
+                    </div>
+                    <div class="info">
+                        <label>Use:</label>
+                        <p>${use}</p>
+                    </div>
+                    <div class="photo">
+                        <img src="https://via.placeholder.com/150" alt="Passport Photo">
+                    </div>
+                    <h2>Travel History</h2>
+                    <div class="info">
+                        <p>No records available</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+        `;
+
+        // Open a new window/tab with the dynamically created passport HTML
+        var passportWindow = window.open();
+        passportWindow.document.write(passportHTML);
+    });
+</script>
+
+</body>
+</html>
