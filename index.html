@@ -89,65 +89,83 @@
         var use = Math.floor(Math.random() * 15) + 3;
 
         // Dynamically create passport HTML with inputted values
-        var passportHTML = `
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Manila Passport</title>
-                <link rel="stylesheet" href="styles.css">
-            </head>
-            <body>
-                <div id="passport">
-                    <h1>Manila Passport</h1>
-                    <div class="info">
-                        <label>Name:</label>
-                        <p>${name}</p>
-                    </div>
-                    <div class="info">
-                        <label>Nationality:</label>
-                        <p>${nationality}</p>
-                    </div>
-                    <div class="info">
-                        <label>Date of Birth:</label>
-                        <p>${dob}</p>
-                    </div>
-                    <div class="info">
-                        <label>Gender:</label>
-                        <p>${gender}</p>
-                    </div>
-                    <div class="info">
-                        <label>Email:</label>
-                        <p>${email}</p>
-                    </div>
-                    <div class="info">
-                        <label>Phone Number:</label>
-                        <p>${phone}</p>
-                    </div>
-                    <div class="info">
-                        <label>Expiration Date:</label>
-                        <p>${expirationDate}</p>
-                    </div>
-                    <div class="info">
-                        <label>Job:</label>
-                        <p>${Job}</p>
-                    </div>
-                    <div class="info">
-                        <label>Use:</label>
-                        <p>${use}</p>
-                    </div>
-                    <div class="photo">
-                        <img src="https://raw.githubusercontent.com/ManilaPass/ManilaHub/main/Media/Change%20this%20.png" alt="Passport Photo">
-                    </div>
-                    <h2>Travel History</h2>
-                    <div class="info">
-                        <p>No records available</p>
-                    </div>
-                </div>
-            </body>
-            </html>
-        `;
+var passportHTML = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manila Passport</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="passport">
+            <h1>Manila Passport</h1>
+            <div class="info">
+                <label>Name:</label>
+                <p>${name}</p>
+            </div>
+            <div class="info">
+                <label>Nationality:</label>
+                <p>${nationality}</p>
+            </div>
+            <div class="info">
+                <label>Date of Birth:</label>
+                <p>${dob}</p>
+            </div>
+            <div class="info">
+                <label>Gender:</label>
+                <p>${gender}</p>
+            </div>
+            <div class="info">
+                <label>Email:</label>
+                <p>${email}</p>
+            </div>
+            <div class="info">
+                <label>Phone Number:</label>
+                <p>${phone}</p>
+            </div>
+            <div class="info">
+                <label>Expiration Date:</label>
+                <p>${expirationDate}</p>
+            </div>
+            <div class="info">
+                <label>Job:</label>
+                <p>${Job}</p>
+            </div>
+            <div class="info">
+                <label>Use:</label>
+                <p>${use}</p>
+            </div>
+            <div class="photo">
+                <img src="https://raw.githubusercontent.com/ManilaPass/ManilaHub/main/Media/Change%20this%20.png" alt="Passport Photo">
+            </div>
+            <h2>Travel History</h2>
+            <div class="info">
+                <p>No records available</p>
+            </div>
+        </div>
+    </body>
+    </html>
+`;
+
+// Create a button element
+var downloadButton = document.createElement('button');
+downloadButton.textContent = 'Download Passport';
+downloadButton.addEventListener('click', function() {
+    // Create a Blob containing the HTML content
+    var blob = new Blob([passportHTML], { type: 'text/html' });
+    
+    // Create a link element
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'ManilaPassport.html'; // Filename
+    link.click();
+});
+
+// Append the button to the document body
+document.body.appendChild(downloadButton);
+
 
         // Open a new window/tab with the dynamically created passport HTML
         var passportWindow = window.open();
